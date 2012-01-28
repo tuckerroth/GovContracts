@@ -1,0 +1,24 @@
+<h1>Government Contracts</h1>
+
+<!-- A Search by value and field -->
+<%= form_tag("/gov_contracts", :method => "get", :remote => true) do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= label_tag(:dField, "Search field:") %>
+  <%= text_field_tag(:dField, 'contract_description') %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @results_size > 0 %>
+  <h3><%= @results_size.to_s + ' Results' + ' for query "' + @user_query + '"' %></h3>
+<% end %>
+
+<%= render :partial => 'gov_contracts_table' %>
+
+<br />
+
+<div id="search-results-table"></div>
+
+<%= link_to 'New Gov contract', new_gov_contract_path %>
+<p></p>
+<%= link_to 'Home', root_path %>

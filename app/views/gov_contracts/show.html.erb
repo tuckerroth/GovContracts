@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Award type:</b>
+  <%= @gov_contract.award_type %>
+</p>
+
+<p>
+  <b>Contract pricing:</b>
+  <%= @gov_contract.contract_pricing %>
+</p>
+
+
+<%= link_to 'Edit', edit_gov_contract_path(@gov_contract) %> |
+<%= link_to 'Back', gov_contracts_path %>

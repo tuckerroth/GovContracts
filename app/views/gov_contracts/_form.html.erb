@@ -1,0 +1,25 @@
+<%= form_for(@gov_contract) do |f| %>
+  <% if @gov_contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gov_contract.errors.count, "error") %> prohibited this gov_contract from being saved:</h2>
+
+      <ul>
+      <% @gov_contract.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :award_type %><br />
+    <%= f.text_field :award_type %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_pricing %><br />
+    <%= f.text_field :contract_pricing %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

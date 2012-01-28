@@ -1,0 +1,18 @@
+<tr class="odd">
+  <td><%= link_to 'Show', gov_contract %></td>
+  <td><%= gov_contract.award_type %></td>
+  <td><%= gov_contract.contract_pricing %></td>
+  <td><%= gov_contract.contracting_agent %></td>
+  <td><%= gov_contract.date_signed %></td>
+  <td><%= gov_contract.contract_description %></td>
+  <td><%= number_to_currency gov_contract.dollars_obligation %></td>
+  <td><%= gov_contract.extent_completed %></td>
+  <td><%= gov_contract.agency_id %></td>
+  <td><%= gov_contract.funding_agency %></td>
+  <td><%= gov_contract.major_agency %></td>
+  <td><%= gov_contract.recipient_city %></td>
+
+
+  <td><%= link_to 'Edit', edit_gov_contract_path(gov_contract) %></td>
+  <td><%= link_to 'Destroy', gov_contract, confirm: 'Are you sure?', method: :delete %></td>
+</tr>

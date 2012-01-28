@@ -1,0 +1,13 @@
+<h1>Search</h1>
+<h3>Perform a search for Colorado government spending in '11</h3>
+<!-- A Search by value and field -->
+<%= form_tag("/gov_contracts", :method => "get") do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= label_tag(:dField, "Search field:") %>
+  <%= text_field_tag(:dField, 'contract_description') %>
+  <%= submit_tag("Search") %>
+<% end %>
+<p><br/></p>
+<%= button_to "Populate Index", reindex_gov_contracts_path, confirm: 'Are you sure?' %>
+
