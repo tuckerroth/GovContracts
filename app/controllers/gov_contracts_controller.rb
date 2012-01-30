@@ -27,12 +27,6 @@ class GovContractsController < ApplicationController
   def index
     @gov_contracts = GovContract.perform_search params
 
-    @results_size = nil
-    # For now, just give me the first 20 if there are no search results
-    if @gov_contracts == nil || @gov_contracts.size == 0
-      @gov_contracts = GovContract.limit(20)
-    end
-
     @results_size = @gov_contracts.size
     @user_query = params[:query]
 

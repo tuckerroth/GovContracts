@@ -12,9 +12,7 @@ class GovContract < ActiveRecord::Base
   # @param params [Hash] query params from controller
   def self.perform_search(params)
 
-    if params[:dField] == nil || params[:query] == nil
-      return nil
-    end
+    return [] unless params[:dField].present? && params[:query].present?
 
     default_field = params[:dField].to_sym
     search_value = params[:query]
@@ -22,9 +20,14 @@ class GovContract < ActiveRecord::Base
     puts search_value.inspect
 
     search = GovContract.search do
-      fulltext(search_value) do
+      keywords search_value do
         fields default_field
       end
+      # Constrain by dollar amount if both start and end are present
+      if params[:dollars_start].present? && params[:dollars_end].present?
+        with(:dollars_obligation, Float(params[:dollars_start])..Float(params[:dollars_end]))
+      end
+      order_by(:dollars_obligation, :desc)
     end
 
     @search_results = search.results

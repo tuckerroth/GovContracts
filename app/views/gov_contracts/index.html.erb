@@ -5,8 +5,14 @@
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
   <%= label_tag(:dField, "Search field:") %>
-  <%= text_field_tag(:dField, 'contract_description') %>
+  <%= select_tag :dField, options_for_select(GovContract.first.attributes.keys, "contract_description") %>
   <%= submit_tag("Search") %>
+  <p>
+    <%= label_tag(:dollars_start, "Dollars Range:") %>
+    <%= text_field_tag(:dollars_start) %>
+    <%= label_tag(:dollars_end, " TO ") %>
+    <%= text_field_tag(:dollars_end) %>
+  </p>
 <% end %>
 
 <%= render :partial => 'gov_contracts_table' %>
