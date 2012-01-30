@@ -26,13 +26,17 @@ class GovContractsController < ApplicationController
   # GET /gov_contracts.json
   def index
     @gov_contracts = GovContract.perform_search params
+
+    @results_size = nil
+    # For now, just give me the first 20 if there are no search results
+    if @gov_contracts == nil || @gov_contracts.size == 0
+      @gov_contracts = GovContract.limit(20)
+    end
+
     @results_size = @gov_contracts.size
     @user_query = params[:query]
 
-    # For now, just give me the first 20 if there are no search results
-    if @gov_contracts.size == 0
-      @gov_contracts = GovContract.limit(20)
-    end
+    puts 'Results Size = ' + @results_size.to_s
 
     respond_to do |format|
       format.html # indexOLD.html.erb
@@ -115,7 +119,16 @@ class GovContractsController < ApplicationController
   # Populate the solr index.
   def reindex
 
+    i = 0
+    rows_to_index = 1000;
+
     CSV.foreach('GovSpending.csv.xls') do |row|
+
+      # Skip the first row
+      if i == 0
+        i += 1
+        next
+      end
 
       govContract = GovContract.new
       govContract.award_type = row[AWARD_TYPE]
@@ -147,6 +160,10 @@ class GovContractsController < ApplicationController
 
       # Save it
       govContract.save
+
+      i += 1
+      # while testing, index only 'rows_to_index' rows
+      break if i > rows_to_index
 
     end
 

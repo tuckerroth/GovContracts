@@ -9,10 +9,6 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<% if @results_size > 0 %>
-  <h3><%= @results_size.to_s + ' Results' + ' for query "' + @user_query + '"' %></h3>
-<% end %>
-
 <%= render :partial => 'gov_contracts_table' %>
 
 <br />

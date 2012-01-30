@@ -11,6 +11,11 @@ class GovContract < ActiveRecord::Base
 
   # @param params [Hash] query params from controller
   def self.perform_search(params)
+
+    if params[:dField] == nil || params[:query] == nil
+      return nil
+    end
+
     default_field = params[:dField].to_sym
     search_value = params[:query]
 

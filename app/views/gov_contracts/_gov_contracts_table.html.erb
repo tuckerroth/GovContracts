@@ -1,4 +1,9 @@
 <div id="search-results-table">
+
+  <% if @results_size && @results_size > 0 %>
+    <h3><%= @results_size.to_s + ' Results' + ' for query "' + @user_query + '"' %></h3>
+  <% end %>
+
   <table class="column-lines small">
       <thead>
       <tr>

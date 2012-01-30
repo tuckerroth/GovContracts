@@ -6,8 +6,8 @@ class CreateGovContracts < ActiveRecord::Migration
       t.string :contracting_agent
       t.date :date_signed
       t.string :reason_for_modification
-      t.string :contract_description
-      t.decimal  :dollars_obligation, precision: 8, scale: 2
+      t.text :contract_description
+      t.decimal  :dollars_obligation, precision: 12, scale: 2
       t.string :extent_completed
       t.string :agency_id
       t.string :funding_agency
