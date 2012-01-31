@@ -4,6 +4,29 @@
     <h3><%= @results_size.to_s + ' Results' + ' for query "' + @user_query + '"' %></h3>
   <% end %>
 
+  <h4><%= "Currently viewing page " + @current_page.to_s + " of " + @gov_contracts.total_pages.to_s %>
+    <%= form_tag("/gov_contracts", :method => "get", :remote => true, :id => 'prev_next_id') do %>
+        <%= hidden_field_tag :query, @user_query %>
+        <%= hidden_field_tag :dField, @default_search_field %>
+        <%= hidden_field_tag :items_per_page, "30" %>
+        <%= hidden_field_tag :page_num, @current_page %>
+
+        <%# Previous %>
+        <% if @current_page > 1 %>
+          <%= link_to_function "<", "submitPrevNext('" + (@current_page - 1).to_s + "')" %>
+        <% else %>
+          &lt;
+        <% end %>
+
+        <%# Next %>
+        <% if @current_page < @gov_contracts.total_pages %>
+            <%= link_to_function ">", "submitPrevNext('" + (@current_page + 1).to_s + "')" %>
+        <% else %>
+            &gt;
+        <% end %>
+    <% end %>
+  </h4>
+
   <table class="column-lines small">
       <thead>
       <tr>

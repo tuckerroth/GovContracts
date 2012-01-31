@@ -12,17 +12,23 @@ class GovContract < ActiveRecord::Base
   # @param params [Hash] query params from controller
   def self.perform_search(params)
 
-    return [] unless params[:dField].present? && params[:query].present?
+    return nil unless params[:dField].present? && params[:query].present? && params[:items_per_page].present?
 
     default_field = params[:dField].to_sym
-    search_value = params[:query]
+    query = params[:query]
+    num_items_to_fetch = Integer(params[:items_per_page])
 
-    puts search_value.inspect
+    page_num_to_fetch = 1;
+    page_num_to_fetch = Integer(params[:page_num]) if params[:page_num].present?
+
+    puts "-------------------  Query  ----------------------"
+    puts "Searching for '" + query + "' in search field '" + default_field.to_s + "'"
+    puts ""
 
     # minimum_match(1) turns this into an OR query.  Note, AND is
     # still respected.
     search = GovContract.search do
-      keywords search_value do
+      keywords query do
         fields default_field
         minimum_match(1)
       end
@@ -30,10 +36,9 @@ class GovContract < ActiveRecord::Base
       if params[:dollars_start].present? && params[:dollars_end].present?
         with(:dollars_obligation, Float(params[:dollars_start])..Float(params[:dollars_end]))
       end
+      paginate :page => page_num_to_fetch, :per_page => num_items_to_fetch
       order_by(:dollars_obligation, :desc)
     end
-
-    @search_results = search.results
 
   end
 end

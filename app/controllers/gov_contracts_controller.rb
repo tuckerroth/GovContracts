@@ -25,10 +25,21 @@ class GovContractsController < ApplicationController
   # GET /gov_contracts
   # GET /gov_contracts.json
   def index
-    @gov_contracts = GovContract.perform_search params
+    @search = GovContract.perform_search params
 
-    @results_size = @gov_contracts.size
+    if (@search)
+      @gov_contracts = @search.results
+      @results_size = @search.total
+    else
+      @gov_contracts = []
+      @results_size = "0";
+    end
+
     @user_query = params[:query]
+    @default_search_field = params[:dField]
+
+    @current_page = 1;
+    @current_page = Integer(params[:page_num]) if params[:page_num].present?
 
     puts 'Results Size = ' + @results_size.to_s
 

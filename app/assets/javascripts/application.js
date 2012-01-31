@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function submitPrevNext(currentPage) {
+    $('#page_num').val(currentPage);
+    $('#prev_next_id').submit()
+}
+

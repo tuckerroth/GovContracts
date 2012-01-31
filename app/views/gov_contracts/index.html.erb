@@ -3,12 +3,16 @@
 <!-- A Search by value and field -->
 <%= form_tag("/gov_contracts", :method => "get", :remote => true) do %>
   <%= label_tag(:query, "Search for:") %>
-  <%= text_field_tag(:query) %>
+  <%= text_field_tag(:query, @user_query) %>
   <%= label_tag(:dField, "Search field:") %>
   <% if GovContract.first %>
-    <%= select_tag :dField, options_for_select(GovContract.first.attributes.keys, "contract_description") %>
+    <%# If there's a row in the DB, get the list of default search fields from there, and  %>
+    <%# make the default be what it was last time user searched. %>
+    <% if @default_search_field %><% dField = @default_search_field %><% else %><% dField = "contract_description" %><% end %>
+    <%= select_tag :dField, options_for_select(GovContract.first.attributes.keys, dField) %>
   <% else %>
-
+    <%# No row in the database, so default field is just contract_desc %>
+    <%= hidden_field_tag :dField, "contract_description" %>
   <% end %>
   <%= submit_tag("Search") %>
   <p>
@@ -17,6 +21,7 @@
     <%= label_tag(:dollars_end, " TO ") %>
     <%= text_field_tag(:dollars_end) %>
   </p>
+  <%= hidden_field_tag :items_per_page, "30" %>
 <% end %>
 
 <%= render :partial => 'gov_contracts_table' %>
