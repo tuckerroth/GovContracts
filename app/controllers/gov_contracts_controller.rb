@@ -114,7 +114,7 @@ class GovContractsController < ApplicationController
   def reindex
 
     i = 0
-    rows_to_index = 1000;
+    rows_to_index = 5000;
 
     CSV.foreach('GovSpending.csv.xls') do |row|
 

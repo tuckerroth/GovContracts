@@ -5,7 +5,11 @@
   <%= label_tag(:query, "Search for:") %>
   <%= text_field_tag(:query) %>
   <%= label_tag(:dField, "Search field:") %>
-  <%= select_tag :dField, options_for_select(GovContract.first.attributes.keys, "contract_description") %>
+  <% if GovContract.first %>
+    <%= select_tag :dField, options_for_select(GovContract.first.attributes.keys, "contract_description") %>
+  <% else %>
+
+  <% end %>
   <%= submit_tag("Search") %>
   <p>
     <%= label_tag(:dollars_start, "Dollars Range:") %>

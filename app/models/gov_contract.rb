@@ -19,9 +19,12 @@ class GovContract < ActiveRecord::Base
 
     puts search_value.inspect
 
+    # minimum_match(1) turns this into an OR query.  Note, AND is
+    # still respected.
     search = GovContract.search do
       keywords search_value do
         fields default_field
+        minimum_match(1)
       end
       # Constrain by dollar amount if both start and end are present
       if params[:dollars_start].present? && params[:dollars_end].present?

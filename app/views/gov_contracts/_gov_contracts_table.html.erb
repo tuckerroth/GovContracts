@@ -1,6 +1,6 @@
 <div id="search-results-table">
 
-  <% if @results_size %>
+  <% if @results_size && @user_query %>
     <h3><%= @results_size.to_s + ' Results' + ' for query "' + @user_query + '"' %></h3>
   <% end %>
 
