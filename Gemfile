@@ -7,13 +7,10 @@ gem 'rails', '3.2.0'
 
 gem 'pg'
 
-group :development do
-  gem 'sunspot_rails'
-  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
-end
+gem 'websolr-sunspot_rails'
 
-group :production do
-  gem 'websolr-sunspot_rails'
+group :development do
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 end
 
 # Gems used only for assets and not required
