@@ -7,7 +7,7 @@ gem 'rails', '3.2.0'
 
 gem 'pg'
 
-gem 'websolr-sunspot_rails'
+gem 'sunspot_rails'
 
 group :development do
   gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
