@@ -45,10 +45,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_gov_contracts_table.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_gov_contracts_table.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/gov_contracts/_gov_contracts_table.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="39" selection-start="531" selection-end="531" vertical-scroll-proportion="0.28625953">
+            <state line="10" column="39" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="29" selection-start="336" selection-end="336" vertical-scroll-proportion="0.41058394">
               <folding />
             </state>
           </provider>
@@ -127,7 +136,6 @@
         <option value="$PROJECT_DIR$/app/views/gov_contracts/index.js.erb" />
         <option value="$PROJECT_DIR$/app/views/gov_contracts/_gov_contract.html.erb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20120127182401_create_gov_contracts.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/solr/conf/schema.xml" />
@@ -138,6 +146,7 @@
         <option value="$PROJECT_DIR$/app/controllers/gov_contracts_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/gov_contracts/_gov_contracts_table.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -773,11 +782,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="23" selection-start="879" selection-end="879" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="41" selection-start="90" selection-end="101" vertical-scroll-proportion="0.0" />
@@ -854,7 +858,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/gov_contracts/_gov_contracts_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="531" selection-end="531" vertical-scroll-proportion="0.28625953">
+        <state line="10" column="39" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="29" selection-start="336" selection-end="336" vertical-scroll-proportion="0.41058394">
           <folding />
         </state>
       </provider>

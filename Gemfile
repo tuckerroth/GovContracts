@@ -12,6 +12,10 @@ group :development do
   gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 end
 
+group :production do
+  gem 'websolr-sunspot_rails'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
